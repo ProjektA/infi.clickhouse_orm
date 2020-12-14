@@ -548,7 +548,7 @@ class QuerySet(object):
             children = self._model_cls.mro()
             for child in children:
                 # we asume the first that is not Distributed is the child.
-                if isinstance(child, (Distributed)): continue
+                if isinstance(child.engine, (Distributed)): continue
                 _engine = child.engine
                 break
 
